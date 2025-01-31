@@ -27,3 +27,17 @@ class Axie(models.Model):
     def __str__(self):
         return self.axie_id
 
+class Transaction(models.Model):
+    TRANSACTION_TYPE = [
+        ('Buy', 'Buy'),
+        ('Sell', 'Sell')
+    ]
+    
+    axie = models.ForeignKey(Axie, on_delete=models.CASCADE)
+    transaction_type = models.CharField(max_length=4, choices=TRANSACTION_TYPE)
+    amount = models.DecimalField(max_digits=10, decimal_places=4)
+    date = models.DateField()
+    
+    def __str__(self):
+        return f"{self.transaction_type} - Axie {self.axie.axie_id} on {self.date}"
+
