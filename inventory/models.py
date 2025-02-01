@@ -40,4 +40,3 @@ class Transaction(models.Model):
     
     def __str__(self):
         return f"{self.transaction_type} - Axie {self.axie.axie_id} on {self.date}"
-
