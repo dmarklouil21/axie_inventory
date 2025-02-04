@@ -3,6 +3,12 @@
 
 {% block title %} Axie Inventory {% endblock %}
 
+{% block navigation_links %} 
+    <li class="nav-item"><a class="nav-link active" href="{% url 'inventory:dashboard_view' %}">Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'inventory:axie_list_view' %}">Axies</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'inventory:transaction_list_view' %}">Transactions</a></li>
+{% endblock %}
+
 {% block content %}
     <h1 class="mb-4">Axie Inventory Dashboard</h1>
     <div class="row"> <!-- Bootstrap grid row -->
