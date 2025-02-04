@@ -1,0 +1,34 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block title %} Axie Inventory - View Transaction {% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Transaction Details</h1>
+    <div class="card p-4">
+        <div class="mb-1">
+            <label class="form-label"><strong>Axie ID:</strong></label>
+            <p>Axie #12345</p>
+        </div>
+        <div class="mb-1">
+            <label class="form-label"><strong>Transaction Type:</strong></label>
+            <p>Sold</p>
+        </div>
+        <div class="mb-1">
+            <label class="form-label"><strong>Amount:</strong></label>
+            <p>$20.00</p>
+        </div>
+        <div class="mb-1">
+            <label class="form-label"><strong>Date:</strong></label>
+            <p>2025-02-01</p>
+        </div>
+        <div class="mb-1">
+            <label class="form-label"><strong>Buyer:</strong></label>
+            <p>John Doe</p>
+        </div>
+        <div class="text-center">
+            <a href="transactions.html" class="btn btn-secondary px-4">Back to Transactions</a>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block title %} Axie Inventory {% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Axie Inventory Dashboard</h1>
+    <div class="row"> <!-- Bootstrap grid row -->
+        <div class="col-md-4"> <!-- Column taking 4 out of 12 grid spaces on medium+ screens -->
+            <div class="card text-white bg-primary mb-3"> <!-- Blue card with white text and margin-bottom -->
+                <div class="card-header">Listed Axies</div>
+                <div class="card-body">
+                    <h5 class="card-title">3</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3"> <!-- Green card for profit -->
+                <div class="card-header">Monthly Profit</div>
+                <div class="card-body">
+                    <h5 class="card-title">$10.00</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger mb-3"> <!-- Red card for sold Axies -->
+                <div class="card-header">Monthly Axies Sold</div>
+                <div class="card-body">
+                    <h5 class="card-title">2</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
