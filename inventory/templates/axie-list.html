@@ -5,7 +5,7 @@
 
 {% block navigation_links %} 
     <li class="nav-item"><a class="nav-link" href="{% url 'inventory:dashboard_view' %}">Dashboard</a></li>
-    <li class="nav-item"><a class="nav-link active" href="{% url 'inventory:axie_list_view' %}">Axies</a></li>
+    <li class="nav-item"><a class="nav-link active" href="{% url 'inventory:axies_view' %}">Axies</a></li>
     <li class="nav-item"><a class="nav-link" href="{% url 'inventory:transaction_list_view' %}">Transactions</a></li>
 {% endblock %}
     
@@ -16,7 +16,7 @@
             <input type="text" class="form-control" placeholder="Search Axies...">
         </div>
         <div class="col-12 col-md-6 d-flex justify-content-end"> <!-- Aligns buttons on right -->
-            <a class="btn btn-primary me-2" href="axie-form.html">Add Axie</a> <!-- Adds margin between buttons -->
+            <a class="btn btn-primary me-2" href="{% url 'inventory:add_axie_view' %}">Add Axie</a> <!-- Adds margin between buttons -->
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</button>
         </div>
     </div>
