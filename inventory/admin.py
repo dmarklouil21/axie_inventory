@@ -4,7 +4,7 @@ from .models import Axie, Transaction
 # Register your models here.
 
 class AxieAdmin(admin.ModelAdmin):
-    list_display = ('axie_id', 'axie_class', 'breed_count', 'cards', 'purchase_price', 
+    list_display = ('axie_id', 'breed_count', 'purchase_price', 
                     'purchase_date', 'status') 
     
     ordering = ('axie_id', )

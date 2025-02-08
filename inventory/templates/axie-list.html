@@ -27,34 +27,31 @@
                     <th>#</th>
                     <th>Axie ID</th>
                     <th>Breed Count</th>
-                    <th>Price</th>
+                    <th>Purchased Price</th>
+                    <th>Selling Price</th>
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Axie #12345</td>
-                    <td>3</td>
-                    <td>$20.00</td>
-                    <td>Listed</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="axie-form.html">Edit</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Axie #67890</td>
-                    <td>2</td>
-                    <td>$25.00</td>
-                    <td>Listed</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="axie-form.html">Edit</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                    </td>
-                </tr>
+                {% for axie in axies %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ axie.axie_id }}</td>
+                        <td>{{ axie.breed_count }}</td>
+                        <td>{{ axie.purchase_price }}</td>
+                        <td>{{ axie.selling_price }}</td>
+                        <td>{{ axie.status }}</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" href="axie-form.html">Edit</a>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center">No Axies found.</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
