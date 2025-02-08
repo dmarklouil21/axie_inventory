@@ -26,34 +26,25 @@
                     <th>#</th>
                     <th>Axie ID</th>
                     <th>Transaction Type</th>
-                    <th>Amount</th>
+                    <th>Price</th>
                     <th>Date</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Axie #12345</td>
-                    <td>Sold</td>
-                    <td>$20.00</td>
-                    <td>2025-02-01</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="transaction-details.html">View</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Axie #67890</td>
-                    <td>Purchased</td>
-                    <td>$25.00</td>
-                    <td>2025-01-30</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="transaction-details.html">View</a>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                    </td>
-                </tr>
+                {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ transaction.axie.axie_id }}</td>
+                        <td>{{ transaction.transaction_type }}</td>
+                        <td>{{ transaction.price }}</td>
+                        <td>{{ transaction.date }}</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" href="transaction-details.html">View</a>
+                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>

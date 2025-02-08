@@ -33,7 +33,7 @@ class Transaction(models.Model):
     
     axie = models.ForeignKey(Axie, on_delete=models.CASCADE)
     transaction_type = models.CharField(max_length=4, choices=TRANSACTION_TYPE)
-    amount = models.DecimalField(max_digits=10, decimal_places=4)
+    price = models.DecimalField(max_digits=10, decimal_places=4)
     date = models.DateField()
     
     def __str__(self):

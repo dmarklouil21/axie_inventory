@@ -10,7 +10,7 @@ class AxieAdmin(admin.ModelAdmin):
     ordering = ('axie_id', )
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display = ('axie', 'transaction_type', 'amount', 'date')
+    list_display = ('axie', 'transaction_type', 'price', 'date')
     
     ordering = ('date', )
 
