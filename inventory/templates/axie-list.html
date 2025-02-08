@@ -43,7 +43,7 @@
                         <td>{{ axie.selling_price }}</td>
                         <td>{{ axie.status }}</td>
                         <td>
-                            <a class="btn btn-sm btn-warning" href="axie-form.html">Edit</a>
+                            <a class="btn btn-sm btn-warning" href="{% url 'inventory:edit_axie_form_view' axie.axie_id %}">Edit</a>
                             <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
                         </td>
                     </tr>

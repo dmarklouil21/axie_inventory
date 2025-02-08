@@ -10,9 +10,21 @@
 {% endblock %}
 
 {% block content %}
-    <div class="alert alert-success py-2">
-        <i class="fas fa-check-circle"></i> Successfully added.
-    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} py-2">
+                {% if message.tags == 'success' %}
+                    <i class="fas fa-check-circle"></i>
+                {% elif message.tags == 'error' %}
+                    <i class="fas fa-exclamation-circle"></i>
+                {% elif message.tags == 'info' %}
+                    <i class="fas fa-info-circle"></i>
+                {% endif %}
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <h1 class="mb-4">Add/Edit Axie</h1>
     <div class="card p-4">
         <form id="axieForm" method="POST"> 
@@ -20,41 +32,41 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="axieID" class="form-label">Axie ID</label>
-                    <input type="text" class="form-control" id="axieID" name="axieID" placeholder="Enter Axie ID" required>
+                    <input type="text" class="form-control" id="axieID" name="axieID" value="{% if axie %}{{ axie.axie_id }}{% endif %}" placeholder="Enter Axie ID" required>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="breedCount" class="form-label">Breed Count</label>
-                    <input type="number" class="form-control" id="breedCount" name="breedCount" placeholder="Enter Breed Count" required>
+                    <label for="breedCount" class="form-label">Breed Count </label>
+                    <input type="number" max="7" class="form-control" id="breedCount" name="breedCount" value="{% if axie %}{{ axie.breed_count }}{% endif %}" placeholder="Enter Breed Count" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="purchasePrice" class="form-label">Purchase Price</label>
-                    <input type="number" step="0.01" class="form-control" name="purchasePrice" id="purchasePrice" placeholder="Enter Price" required>
+                    <input type="number" step="0.01" class="form-control" name="purchasePrice" id="purchasePrice" value="{% if axie %}{{ axie.purchase_price }}{% endif %}" placeholder="Enter Price" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="purchaseDate" class="form-label">Purchase Date</label>
-                    <input type="date" class="form-control" name="purchaseDate" id="purchaseDate" required>
+                    <input type="date" class="form-control" name="purchaseDate" id="purchaseDate" value="{% if axie %}{{ axie.purchase_date|date:'Y-m-d' }}{% endif %}" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="sellingPrice" class="form-label">Selling Price</label>
-                    <input type="number" step="0.01" class="form-control" name="sellingPrice" id="sellingPrice" placeholder="NA" disabled required>
+                    <input type="number" step="0.01" class="form-control" name="sellingPrice" id="sellingPrice" value="{% if axie %}{{ axie.selling_price }}{% endif %}" placeholder="NA" disabled required>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="dateSold" class="form-label">Selling Price</label>
-                    <input type="date" step="0.01" class="form-control" name="dateSold" id="dateSold" disabled required>
+                    <label for="dateSold" class="form-label">Date Sold</label>
+                    <input type="date" step="0.01" class="form-control" name="dateSold" id="dateSold" value="{% if axie %}{{ axie.sell_date }}{% endif %}" disabled required>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="status" class="form-label">Status</label>
                     <select class="form-select" id="status" name="status" required>
-                        <option value="">Select Status</option>
-                        <option value="Owned">Owned</option>
-                        <option value="Listed">Listed</option>
-                        <option value="Sold">Sold</option>
+                        <option value="" {% if not axie %} selected {% endif %}>Select Status</option>
+                        <option value="Owned" {%if axie and axie.status == 'Owned' %} selected {% endif %}>Owned</option>
+                        <option value="Listed" {%if axie and axie.status == 'Listed' %} selected {% endif %}>Listed</option>
+                        <option value="Sold" {%if axie and axie.status == 'Sold' %} selected {% endif %}>Sold</option>
                     </select>
                 </div>
             </div>
