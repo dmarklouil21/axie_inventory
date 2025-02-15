@@ -16,7 +16,7 @@
             <div class="card text-white bg-primary mb-3"> <!-- Blue card with white text and margin-bottom -->
                 <div class="card-header">Listed Axies</div>
                 <div class="card-body">
-                    <h5 class="card-title">3</h5>
+                    <h5 class="card-title">{{ listed_axies }}</h5>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="card text-white bg-success mb-3"> <!-- Green card for profit -->
                 <div class="card-header">Monthly Profit</div>
                 <div class="card-body">
-                    <h5 class="card-title">$10.00</h5>
+                    <h5 class="card-title">${{ monthly_profit }}</h5>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="card text-white bg-danger mb-3"> <!-- Red card for sold Axies -->
                 <div class="card-header">Monthly Axies Sold</div>
                 <div class="card-body">
-                    <h5 class="card-title">2</h5>
+                    <h5 class="card-title">{{ sold_axies }}</h5>
                 </div>
             </div>
         </div>

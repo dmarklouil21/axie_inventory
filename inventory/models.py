@@ -13,7 +13,7 @@ class Axie(models.Model):
     breed_count = models.IntegerField()
     purchase_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     purchase_date = models.DateField(null=True, blank=True)
-    selling_price = models.DecimalField(max_digits=10, decimal_places=5, null=True, blank=True)
+    selling_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     sell_date = models.DateField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Owned')
 
